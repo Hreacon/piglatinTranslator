@@ -5,6 +5,9 @@ describe("sentenceTranslator", function () {
   it("handles numerical input - by treating it like a vowel", function() {
     expect(sentenceTranslator('4')).to.equal('4ay');
   });
+  it("ignores blank input strings", function() {
+    expect(sentenceTranslator('   ')).to.equal('');
+  });
 });
 
 
