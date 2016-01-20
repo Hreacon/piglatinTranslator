@@ -2,8 +2,8 @@ describe("sentenceTranslator", function () {
   it("for sentence 'this is pig latin yes einsteinium squash' expect 'isthay isay igpay atinlay esyay einteiniumay ashsquay'", function() {
     expect(sentenceTranslator('this is pig latin yes einsteinium squash')).to.equal('isthay isay igpay atinlay esyay einsteiniumay ashsquay');
   });
-  it("handles numerical input - by ignoring it", function() {
-    expect(sentenceTranslator(4)).to.equal('4');
+  it("handles numerical input - by treating it like a vowel", function() {
+    expect(sentenceTranslator('4')).to.equal('4ay');
   });
 });
 

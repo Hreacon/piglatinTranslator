@@ -4,21 +4,23 @@ function moveConsonants(word) {
   // it will shift of the letter and move it to the end.
   // loop until it reaches a vowel.
   // return
-  var vowels = ["a", "e", "i", 'o', 'u'];
+  var vowels = ["a", "e", "i", 'o', 'u']; 
   // word=average
   // vowels.indexof(a)
   // 0 < 0 - false
   // this
   // vowels.indexof(t)
   // -1 < 0 - true
-  while (vowels.indexOf(word[0]) < 0) {//an "if loop" that checks if the following is true.
-    // if first letter is q and the second letter is u
-    // move them both
-    // else
-    if (word[0]==='q' && word[1]==='u') {
-      word = word.substring(2) + 'qu';
-    } else {
-      word = word.substring(1) + word[0];
+  if(new RegExp(vowels.join('|')).test(word)) {
+    while (vowels.indexOf(word[0]) < 0) {//an "if loop" that checks if the following is true.
+      // if first letter is q and the second letter is u
+      // move them both
+      // else
+      if (word[0]==='q' && word[1]==='u') {
+        word = word.substring(2) + 'qu';
+      } else {
+        word = word.substring(1) + word[0];
+      }
     }
   }
   return word;
@@ -33,19 +35,24 @@ function wordTranslator(word) {
 
 function sentenceTranslator(sentence) {
   // run the words in the sentence through wordTranslator
-  var output = [];
+  var sentenceOut = [];
   // this is a, sentence
   sentence = sentence.split(' ');
   // ['this', 'is', 'a,', 'sentence']
   sentence.forEach(function(word) {
+    var wordOut = '';
     // check and see if word is a number
-    // ignore numbers
-
-    // check for punctuation
-    // take punctuation off, and re add after translation
-    output.push(wordTranslator(word));
+    // ignore numbers, and words that start with numbers
+    if( isNaN( parseInt( word )) ) {// test for numbers and words that start with numbers
+      // check for punctuation
+      // take punctuation off, and re add after translation
+      wordOut = wordTranslator(word);
+    } else {
+      wordOut = word+'ay';
+    }
+    sentenceOut.push(wordOut);
   });
-  return output.join(' ');
+  return sentenceOut.join(' ');
 }
 
 $(document).ready(function() {
