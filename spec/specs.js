@@ -17,7 +17,10 @@ describe("wordTranslator", function() {
   });
   it("will strip punctuation from words and move them to the end of the word", function() {
     expect(wordTranslator('average!')).to.equal('averagay!')
-  })
+  });
+  it("will keep quotes in place", function() {
+    expect(wordTranslator('"this"')).to.equal('"isthay"');
+  });
 });
 
 describe("moveConsonants", function() {
