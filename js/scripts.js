@@ -31,26 +31,34 @@ function wordTranslator(word) {
   // wrord = this
   // return "isth" + "ay"
   var punctuation = ["'",'"',"!",".",",",";",":","?"];
-  var wordPunc = '';
+  var wordPuncEnd = '';
   var wordPuncFront = '';
-  var isPunc = punctuation.indexOf(word[word.length-1]);
-  if( isPunc > 0) {// if the word contains punctuation
-    wordPunc = word[word.length-1];
-    word = word.substring(0,word.length-1);
-    if( punctuation.indexOf(word[0]) > 0 ) { // check for starting quote
+  var output = '';
+  if(word.trim().length>0) {
+    while( punctuation.indexOf(word[word.length-1]) > 0 ) {// if the word contains punctuation
+      wordPuncEnd += word[word.length-1];
+      word = word.substring(0,word.length-1);
+    }
+    while( punctuation.indexOf(word[0]) > 0 ) { // check for starting quote
       // grab starting punctuation
-      wordPuncFront = word[0];
+      wordPuncFront += word[0];
       word = word.substring(1);
     }
+    wordPuncEnd = wordPuncEnd.split('').reverse().join('');
+    output = wordPuncFront + moveConsonants(word) + "ay" + wordPuncEnd;
+  } else {
+    output = word;
   }
-  return wordPuncFront + moveConsonants(word) + "ay" + wordPunc;
+  return output;
 }
 
 function sentenceTranslator(sentence) {
   // run the words in the sentence through wordTranslator
   var sentenceOut = [];
   // this is a, sentence
-  sentence = sentence.split(' ');
+  // test to make sure the input is not blank and not just whitespace
+
+  sentence = sentence.trim().split(' ');
   // ['this', 'is', 'a,', 'sentence']
   sentence.forEach(function(word) {
     var wordOut = '';

@@ -6,7 +6,7 @@ describe("sentenceTranslator", function () {
     expect(sentenceTranslator('4')).to.equal('4ay');
   });
   it("ignores blank input strings", function() {
-    expect(sentenceTranslator('   ')).to.equal('');
+    expect(sentenceTranslator('        ')).to.equal('');
   });
 });
 
