@@ -11,7 +11,7 @@ function moveConsonants(word) {
   // this
   // vowels.indexof(t)
   // -1 < 0 - true
-
+  if(new RegExp(vowels.join('|')).test(word)) {
     while (vowels.indexOf(word[0]) < 0) {//an "if loop" that checks if the following is true.
       // if first letter is q and the second letter is u
       // move them both
@@ -22,7 +22,7 @@ function moveConsonants(word) {
         word = word.substring(1) + word[0];
       }
     }
-  //}
+  }
   return word;
 }
 
