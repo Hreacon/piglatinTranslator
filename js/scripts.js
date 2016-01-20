@@ -5,7 +5,12 @@ function moveConsonants(word) {
   // loop until it reaches a vowel.
   // return
   var vowels = ["a", "e", "i", 'o', 'u'];
-
+  // word=average
+  // vowels.indexof(a)
+  // 0 < 0 - false
+  // this
+  // vowels.indexof(t)
+  // -1 < 0 - true
   while (vowels.indexOf(word[0]) < 0) {//an "if loop" that checks if the following is true.
     // if first letter is q and the second letter is u
     // move them both
@@ -21,6 +26,8 @@ function moveConsonants(word) {
 
 function wordTranslator(word) {
   // it will add "ay" to the end of word.
+  // wrord = this
+  // return "isth" + "ay"
   return moveConsonants(word) + "ay";
 }
 
@@ -31,7 +38,23 @@ function sentenceTranslator(sentence) {
   sentence = sentence.split(' ');
   // ['this', 'is', 'a,', 'sentence']
   sentence.forEach(function(word) {
+    // check and see if word is a number
+    // ignore numbers
+
+    // check for punctuation
+    // take punctuation off, and re add after translation
     output.push(wordTranslator(word));
   });
   return output.join(' ');
 }
+
+$(document).ready(function() {
+  $('form').submit(function(event){
+    // gather the input from the user
+    // in the little form box that they entered
+    var sentence = $('input#sentence').val();
+    // pass sentence to sentenceTranslater than output
+    $('.output').text(sentenceTranslator(sentence));//
+    event.preventDefault();
+  });
+});
