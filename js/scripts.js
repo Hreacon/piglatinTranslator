@@ -8,7 +8,7 @@ function moveConsonants(word) {
 
   debugger;
 
-  while (vowels.indexOf(word[0]) < 0) {
+  while (vowels.indexOf(word[0]) < 0) {//an "if loop" that checks if the following is true.
     // if first letter is q and the second letter is u
     // move them both
     // else
@@ -23,5 +23,5 @@ function moveConsonants(word) {
 
 function wordTranslator(word) {
   // it will add "ay" to the end of word.
-  return word + "ay";
+  return moveConsonants(word) + "ay";
 }
