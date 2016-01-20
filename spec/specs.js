@@ -2,6 +2,9 @@ describe("wordTranslator", function() {
   it("for words that start with a vowel, add 'ay' to the end", function() {
     expect(wordTranslator('average')).to.equal('averageay');
   });
+  it("for words that begin with consonants(including y) move all of the first consecutive consonants to the end and add ay", function() {
+    expect(wordTranslator('ytterbic')).to.equal('erbicyttay');
+  });
 });
 
 describe("moveConsonants", function() {
