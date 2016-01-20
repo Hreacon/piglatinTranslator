@@ -30,13 +30,20 @@ function wordTranslator(word) {
   // it will add "ay" to the end of word.
   // wrord = this
   // return "isth" + "ay"
-  var punctuation = ["'","\"","!",".",",",";",":","?"];
+  var punctuation = ["'",'"',"!",".",",",";",":","?"];
   var wordPunc = '';
-  if(punctuation.indexOf(word[word.length-1]) > 0) {// if the word contains punctuation
+  var wordPuncFront = '';
+  var isPunc = punctuation.indexOf(word[word.length-1]);
+  if( isPunc > 0) {// if the word contains punctuation
     wordPunc = word[word.length-1];
     word = word.substring(0,word.length-1);
+    if( punctuation.indexOf(word[0]) > 0 ) { // check for starting quote
+      // grab starting punctuation
+      wordPuncFront = word[0];
+      word = word.substring(1);
+    }
   }
-  return moveConsonants(word) + "ay" + wordPunc;
+  return wordPuncFront + moveConsonants(word) + "ay" + wordPunc;
 }
 
 function sentenceTranslator(sentence) {

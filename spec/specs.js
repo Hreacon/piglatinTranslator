@@ -16,7 +16,7 @@ describe("wordTranslator", function() {
     expect(wordTranslator('ytterbic')).to.equal('erbicyttay');
   });
   it("will strip punctuation from words and move them to the end of the word", function() {
-    expect(wordTranslator('average!')).to.equal('averagay!')
+    expect(wordTranslator('average!')).to.equal('averageay!')
   });
   it("will keep quotes in place", function() {
     expect(wordTranslator('"this"')).to.equal('"isthay"');
