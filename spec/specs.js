@@ -8,4 +8,7 @@ describe("moveConsonants", function() {
   it("moves the first consonants to the end of the word", function() {
     expect(moveConsonants('smoking')).to.equal('okingsm');
   });
+  it("moves qu before any other vowels", function() {
+    expect(moveConsonants('squeal')).to.equal('ealsqu');
+  });
 });
