@@ -6,8 +6,6 @@ function moveConsonants(word) {
   // return
   var vowels = ["a", "e", "i", 'o', 'u'];
 
-  debugger;
-
   while (vowels.indexOf(word[0]) < 0) {//an "if loop" that checks if the following is true.
     // if first letter is q and the second letter is u
     // move them both
@@ -24,4 +22,16 @@ function moveConsonants(word) {
 function wordTranslator(word) {
   // it will add "ay" to the end of word.
   return moveConsonants(word) + "ay";
+}
+
+function sentenceTranslator(sentence) {
+  // run the words in the sentence through wordTranslator
+  var output = [];
+  // this is a, sentence
+  sentence = sentence.split(' ');
+  // ['this', 'is', 'a,', 'sentence']
+  sentence.forEach(function(word) {
+    output.push(wordTranslator(word));
+  });
+  return output.join(' ');
 }
