@@ -15,6 +15,9 @@ describe("wordTranslator", function() {
   it("for words that begin with consonants(including y) move all of the first consecutive consonants to the end and add ay", function() {
     expect(wordTranslator('ytterbic')).to.equal('erbicyttay');
   });
+  it("will strip punctuation from words and move them to the end of the word", function() {
+    expect(wordTranslator('average!')).to.equal('averagay!')
+  })
 });
 
 describe("moveConsonants", function() {
