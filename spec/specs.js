@@ -11,4 +11,7 @@ describe("moveConsonants", function() {
   it("moves qu before any other vowels", function() {
     expect(moveConsonants('squeal')).to.equal('ealsqu');
   });
+  it("move y like a consonant", function() {
+    expect(moveConsonants('ytterbic')).to.equal('erbicytt');
+  });
 });
