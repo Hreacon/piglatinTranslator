@@ -6,6 +6,6 @@ describe("wordTranslator", function() {
 
 describe("moveConsonants", function() {
   it("moves the first consonants to the end of the word", function() {
-    expect(moveConsonants('smoking')).to.equal('okingsmay');
+    expect(moveConsonants('smoking')).to.equal('okingsm');
   });
 });
