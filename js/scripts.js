@@ -30,7 +30,13 @@ function wordTranslator(word) {
   // it will add "ay" to the end of word.
   // wrord = this
   // return "isth" + "ay"
-  return moveConsonants(word) + "ay";
+  var punctuation = ["'","\"","!",".",",",";",":","?"];
+  var wordPunc = '';
+  if(punctuation.indexOf(word[word.length-1]) > 0) {// if the word contains punctuation
+    wordPunc = word[word.length-1];
+    word = word.substring(0,word.length-1);
+  }
+  return moveConsonants(word) + "ay" + wordPunc;
 }
 
 function sentenceTranslator(sentence) {
