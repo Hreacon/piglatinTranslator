@@ -5,11 +5,19 @@ function moveConsonants(word) {
   // loop until it reaches a vowel.
   // return
   var vowels = ["a", "e", "i", 'o', 'u'];
-  
-  while (vowels.indexOf(word[0]) < 0) {
-    word = word.substring(1) + word[0];
-  }
 
+  debugger;
+
+  while (vowels.indexOf(word[0]) < 0) {
+    // if first letter is q and the second letter is u
+    // move them both
+    // else
+    if (word[0]==='q' && word[1]==='u') {
+      word = word.substring(2) + 'qu';
+    } else {
+      word = word.substring(1) + word[0];
+    }
+  }
   return word;
 }
 
