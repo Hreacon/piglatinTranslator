@@ -27,4 +27,7 @@ describe("moveConsonants", function() {
   it("move y like a consonant", function() {
     expect(moveConsonants('ytterbic')).to.equal('erbicytt');
   });
+  it("ignores words without values", function() {
+    expect(moveConsonants('htt')).to.equal('htt');
+  });
 });

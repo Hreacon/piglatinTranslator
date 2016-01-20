@@ -4,14 +4,14 @@ function moveConsonants(word) {
   // it will shift of the letter and move it to the end.
   // loop until it reaches a vowel.
   // return
-  var vowels = ["a", "e", "i", 'o', 'u']; 
+  var vowels = ["a", "e", "i", 'o', 'u'];
   // word=average
   // vowels.indexof(a)
   // 0 < 0 - false
   // this
   // vowels.indexof(t)
   // -1 < 0 - true
-  if(new RegExp(vowels.join('|')).test(word)) {
+
     while (vowels.indexOf(word[0]) < 0) {//an "if loop" that checks if the following is true.
       // if first letter is q and the second letter is u
       // move them both
@@ -22,7 +22,7 @@ function moveConsonants(word) {
         word = word.substring(1) + word[0];
       }
     }
-  }
+  //}
   return word;
 }
 
