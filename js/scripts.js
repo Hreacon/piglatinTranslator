@@ -23,6 +23,7 @@ function moveConsonants(word) {
       if (word[0]==='q' && word[1]==='u') {
         // move them both. Substring starts at index(2) and returns the rest of the word.
         word = word.substring(2) + 'qu';
+        break;
       } else { // else, the first letter is not q, move the first consonant to the end of the string
         // word=foo word.substring(1) === oo
         word = word.substring(1) + word[0];
@@ -96,7 +97,7 @@ $(document).ready(function() {
     // gather the input from the user
     // in the little form box that they entered
     var sentence = $('input#sentence').val();
-    // pass sentence to sentenceTranslater than output
+    // pass sentence to sentenceTranslater rather than output
     $('.output').text(sentenceTranslator(sentence));//
     event.preventDefault();
   });
